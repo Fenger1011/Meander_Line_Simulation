@@ -16,7 +16,7 @@ import re
 # ---------- EDIT THIS FUNCTION ----------
 def u(theta: np.ndarray) -> np.ndarray:
     """Radiation intensity U(theta). Theta in RADIANS, 0..pi."""
-    return np.cos(theta)
+    return np.cos(theta) / 0.866
 # ---------------------------------------
 
 OUT_HTML = "radiation_pattern.html"  # output file name
@@ -36,7 +36,7 @@ def main():
     expr_str = get_function_expression(u)
 
     # Theta for polar cut (0..pi/2 == 0..90°)
-    theta = np.linspace(0, np.pi/2, 721)
+    theta = np.linspace(np.pi/6, np.pi/2, 721)
     U = u(theta)
 
     # Clean up: intensity must be >= 0 and finite
@@ -52,7 +52,7 @@ def main():
     theta_deg = np.degrees(theta)
 
     # 3D surface by revolving U(theta) about z-axis
-    phi = np.linspace(np.pi/2, np.pi, 721)
+    phi = np.linspace(0, 2*np.pi, 721)
     TH, PH = np.meshgrid(theta, phi, indexing="ij")
     U_on_TH = np.interp(TH[:, 0], theta, U_plot)[:, None] * np.ones_like(PH)
     R = U_on_TH   # radius in linear magnitude
