@@ -165,6 +165,7 @@ INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\tfm\public\a
 INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Christian Fenger\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
 INPUT Meander_Line_Simulation.aux
 INPUT .\Meander_Line_Simulation.out
 INPUT .\Meander_Line_Simulation.out
@@ -186,5 +187,7 @@ INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\type1\public
 INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb
+INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb
 INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
 INPUT C:\Users\Christian Fenger\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
