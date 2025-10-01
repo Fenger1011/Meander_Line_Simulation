@@ -1,0 +1,119 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{hyperref}
+
+\title{Meander Line Antenna Simulation}
+\author{Christian Fenger \& Jeppe Iversen}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Calculations based on paper}
+\begin{align*}
+d &= 0.16\lambda_g \\
+s &= 0.41\lambda_g \\
+L &= 0.70\lambda_g \\
+w &= 0.05\lambda_g
+\end{align*}
+
+$$
+\lambda_g = \frac{\lambda}{\sqrt{\epsilon_{ff}}}
+$$
+$$
+\epsilon_{ff} = \frac{\epsilon_r+1}{2} + \frac{\epsilon_r-1}{2} \left( 1 + 10\frac{h}{w} \right)^{-1/2}
+$$
+
+Assuming a standard 4-layer PCB:
+\[
+h = 1.6~\text{mm}, \quad \epsilon_r = 4.5
+\]
+
+First we calculate $\epsilon_{ff}$ to get $\lambda_g$:
+$$\lambda_g = \frac{\lambda}{\sqrt{\epsilon_{ff}}},$$
+$$\lambda = \frac{c}{f} = \frac{3\cdot 10^8}{1060~\text{MHz}} = 28.3~\text{cm},$$
+$$\epsilon_r = 4.5, \quad h = 1.6~\text{mm},$$
+$$ \therefore \epsilon_{ff} = 3.73$$
+
+Therefore:
+\[
+\lambda_g = 0.1465~\text{m} = 14.65~\text{cm} \\
+\]
+
+The paper mentions a necessary dimension correction $\Delta L$:
+\[
+\Delta L = 0.5 w, \qquad 
+w = \frac{c}{2f_r} \sqrt{\frac{2}{\epsilon_r + 1}}
+\]
+
+The meander line dimensions before corrections are:
+\begin{align*}
+d &= 0.16\lambda_g = 0.02344~\text{m} \\
+s &= 0.42\lambda_g = 0.06153~\text{m} \\
+L &= 0.70\lambda_g = 0.10255~\text{m} \\
+w &= 0.05\lambda_g = 0.007325~\text{m}
+\end{align*}
+
+Now we calculate $\Delta L$:
+\[
+\Delta L = 0.5 \left( \frac{3\cdot 10^8~\text{m/s}}{2 \cdot 1.06~\text{GHz}} \right) 
+\sqrt{\frac{2}{4.5+1}} = 0.04266~\text{m}
+\]
+
+The corrected values are:
+\begin{align*}
+S_p &= s+\Delta L = 0.10419~\text{m} \\
+d_p &= d+\Delta L = 0.0661~\text{m} \\
+L_p &= L+\Delta L = 0.14521~\text{m}
+\end{align*}
+
+Now we calculate the HPBWs and the directivity:
+\[
+k_0 = \frac{\pi}{\sqrt{\epsilon_{ff}}L_p} = 11.20208
+\]
+
+\begin{align*}
+\theta_E &= 2.45~\text{rad} = 140^\circ \\
+\theta_H &= 1.867~\text{rad} = 107^\circ
+\end{align*}
+
+Therefore:
+\[
+D = \frac{41253}{\theta_E \theta_H} = 2.754 \approx 4.4~\text{dBi}
+\]
+
+\section*{Simulation Results}
+The antenna was simulated using the following functions: \\
+\begin{enumerate}
+  \item singleDipole() $\rightarrow$ This function calculates the E- and H-field contributions from a single Hertzian dipole at a single point in space
+  \item oneHertzianAllPoints() $\rightarrow$ This function calculates the E- and H-field contributions from a single Hertzian dipole to all points in space
+  \item fullTraceAllPoints() $\rightarrow$ This function calculates the E- and H-field contributions from a whole meander line trace to all points in space
+  \item MeanderTotalRadiation() $\rightarrow$ This function calculates the E- and H-field contributions of all Meander traces for all points in space
+\end{enumerate} \\
+
+The results were:
+
+$$
+E_{HPBW} = 117.30^{\circ}, ~~~~ H_{HPBW} = 151.68^{\circ}
+$$
+
+Which gives a directivity of:
+$$
+D = \frac{41253}{117.3^{\circ}\times 151.68^{\circ}} = 2.3184 = 3.65 \text{dBi}
+$$
+
+
+\section*{Conclusion}
+There was a discrepancy between calculations and simulations of:
+$$
+4.4~\text{dBi} - 3.65~\text{dBi} = 0.75~\text{dBi}
+$$
+
+\noindent The radiation pattern can be seen in 'Results' folder or by running the 'Antenna\_sim.ipynb'
+
+\end{document}
