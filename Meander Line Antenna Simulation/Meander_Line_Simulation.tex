@@ -94,6 +94,7 @@ The antenna was simulated using the following functions: \\
   \item oneHertzianAllPoints() $\rightarrow$ This function calculates the E- and H-field contributions from a single Hertzian dipole to all points in space
   \item fullTraceAllPoints() $\rightarrow$ This function calculates the E- and H-field contributions from a whole meander line trace to all points in space
   \item MeanderTotalRadiation() $\rightarrow$ This function calculates the E- and H-field contributions of all Meander traces for all points in space
+  \item For the field contributions of each dipole the current distribution is assumed sinusoidal with variations based on $I_0 e^{-j\beta l}$
 \end{enumerate} \\
 
 The results were:
@@ -109,11 +110,11 @@ $$
 
 
 \section*{Conclusion}
-There was a discrepancy between calculations and simulations of:
+There was a discrepancy between calculations and simulations the directivity of:
 $$
 4.4~\text{dBi} - 3.65~\text{dBi} = 0.75~\text{dBi}
 $$
 
-\noindent The radiation pattern can be seen by running \texttt{Meander\_Line\_Radiation\_Pattern\_3D.html} or by running the \texttt{Antenna\_sim.ipynb}
+\noindent The radiation pattern can be seen by opening \texttt{Meander\_Line\_Radiation\_Pattern\_3D.html} or by running the \texttt{Antenna\_sim.ipynb}
 
 \end{document}
